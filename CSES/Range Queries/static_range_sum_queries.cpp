@@ -29,7 +29,7 @@ struct Range {
 
 vector<ll> segment_tree;
 
-ll QueryRangeMinimum(int node_idx, Range node, Range query) {
+ll QueryRangeSum(int node_idx, Range node, Range query) {
   if (query.low <= node.low && node.high <= query.high) {
     return segment_tree[node_idx];
   }
@@ -37,8 +37,8 @@ ll QueryRangeMinimum(int node_idx, Range node, Range query) {
     return 0;
   }
   int mid = node.low + (node.high - node.low) / 2;
-  return QueryRangeMinimum(node_idx * 2, {node.low, mid}, query)
-      + QueryRangeMinimum(node_idx * 2 + 1, {mid + 1, node.high}, query);
+  return QueryRangeSum(node_idx * 2, {node.low, mid}, query)
+      + QueryRangeSum(node_idx * 2 + 1, {mid + 1, node.high}, query);
 }
 
 void Solve() {
@@ -61,7 +61,7 @@ void Solve() {
     cin >> low >> high;
     --low;
     --high;
-    ll answer = QueryRangeMinimum(1, {0, m - 1}, {low, high});
+    ll answer = QueryRangeSum(1, {0, m - 1}, {low, high});
     cout << answer << '\n';
   }
 }
