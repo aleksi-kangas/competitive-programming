@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <bitset>
+#include <cassert>
 #include <climits>
 #include <cmath>
 #include <deque>
@@ -35,6 +36,6 @@ int main() {
 
   for (int test_case = 1; test_case <= test_cases; ++test_case) {
     int answer = Solve();
-    cout << "Case #" << test_case << ": " << answer << endl;
+    cout << "Case #" << test_case << ": " << answer << '\n';
   }
 }
