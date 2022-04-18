@@ -31,5 +31,10 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  Solve();
+  int test_cases;
+  cin >> test_cases;
+
+  while (test_cases--) {
+    Solve();
+  }
 }
